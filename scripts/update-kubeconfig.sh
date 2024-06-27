@@ -1,11 +1,7 @@
 #!/bin/bash
-if aws eks list-clusters --region us-west-2 --output text 2>&1 ; then
+response="$(aws eks list-clusters --region us-west-2 --output text | grep -i dominion-cluster 2>&1)" 
+if [[ $? -eq 0 ]]; then
+    echo "Success: Dominion-cluster exist"
 else
-  e=$?        # return code from if
-  if [ "${e}" != 0 ]; then
-    echo "dominion-cluster does not exist"
-  elif [ "${e}" == 0]; then
-    echo "updating cluster kubeconfig file"
-    aws eks --region us-west-2 update-kubeconfig --name dominion-cluster && export KUBE_CONFIG_PATH=~/.kube/conf
-  fi
+    echo "Error: Dominion-cluster does not exist"
 fi
