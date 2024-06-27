@@ -35,16 +35,7 @@ pipeline {
             steps { 
                 echo 'Terraform ${params.deploy_choice} phase'  
                 sh "AWS_REGION=us-west-2 terraform ${params.deploy_choice}  -target=module.vpc -target=module.eks --auto-approve"
-                 script {
-                    aws eks list-clusters --region us-west-2 --output text 2>&1
-                    if  [ $? != 0 ]
-                    then
-                        echo "dominion-cluster does not exist"
-                    else
-                        echo "updating cluster kubeconfig file "
-                        aws eks --region us-west-2 update-kubeconfig --name dominion-cluster && export KUBE_CONFIG_PATH=~/.kube/conf
-                    fi
-                }
+                sh "aws eks --region us-west-2 update-kubeconfig --name dominion-cluster && export KUBE_CONFIG_PATH=~/.kube/config"
                 sh "AWS_REGION=us-west-2 terraform ${params.deploy_choice} --auto-approve"
             }
                 }
@@ -64,12 +55,5 @@ pipeline {
 
 
 
-                                                                                                                                                                                                                                         
-  aws eks describe-cluster --name dominion-cluster --region us-west-2 2>&1                                                                                                                                                                                   
-  if [ [ $? != 0 ]  ]; then                                                                                                                                                                                                              
-    echo "dominion-cluster does not exit"                                                                                                                                                                                                                                                                                                                                                                                                                                   
-  else                                                                                                                                                                                                                                        
-    echo "updating cluster kubeconfig file "                                                                                                                                                                                                           
-    sh "aws eks --region us-west-2 update-kubeconfig --name dominion-cluster && export KUBE_CONFIG_PATH=~/.kube/config"                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-  fi 
+
 
