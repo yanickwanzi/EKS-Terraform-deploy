@@ -35,7 +35,7 @@ pipeline {
             steps { 
                 echo 'Terraform ${params.deploy_choice} phase'  
                 sh "AWS_REGION=us-west-2 terraform ${params.deploy_choice}  -target=module.vpc -target=module.eks --auto-approve"
-                sh("""update-kubeconfig.sh""")
+                sh("""scripts/update-kubeconfig.sh""")
                 sh "AWS_REGION=us-west-2 terraform ${params.deploy_choice} --auto-approve"
             }
                 }
