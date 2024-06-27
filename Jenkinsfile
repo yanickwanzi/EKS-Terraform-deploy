@@ -35,7 +35,13 @@ pipeline {
             steps { 
                 echo 'Terraform ${params.deploy_choice} phase'  
                 sh "AWS_REGION=us-west-2 terraform ${params.deploy_choice}  -target=module.vpc -target=module.eks --auto-approve"
-                sh "aws eks --region us-west-2 update-kubeconfig --name dominion-cluster && export KUBE_CONFIG_PATH=~/.kube/config"
+                 script {
+                    if (aws eks list-clusters --region us-west-2 2>&1 | grep -i "dominion-cluster" == "dominion-cluster") {
+                        sh "aws eks --region us-west-2 update-kubeconfig --name dominion-cluster && export KUBE_CONFIG_PATH=~/.kube/config"
+                    } else {
+                        echo 'The eks cluster does not exit'
+                    }
+                }
                 sh "AWS_REGION=us-west-2 terraform ${params.deploy_choice} --auto-approve"
             }
                 }
@@ -51,3 +57,4 @@ pipeline {
           }
      }       
 }   
+
