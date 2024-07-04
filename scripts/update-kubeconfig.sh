@@ -3,9 +3,6 @@ response="$(aws eks list-clusters --region us-west-2 --output text | grep -i dom
 if [[ $? -eq 0 ]]; then
     echo "Success: Dominion-cluster exist"
     aws eks --region us-west-2 update-kubeconfig --name dominion-cluster && export KUBE_CONFIG_PATH=~/.kube/config
-    aws iam attach-role-policy \
-    --role-name my-worker-node-role \
-    --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy 
 
 else
     echo "Error: Dominion-cluster does not exist"
