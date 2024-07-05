@@ -90,10 +90,10 @@ output "security_group_id" {
   description = "The ID of the security group"
   value       = module.managed_grafana.security_group_id
 }
-output "jenkins_server_public_ip" {
-  description = "Public IP address of the Jenkins server"
-  value       = module.jenkins_server.jenkins_server_public_ip
-}
+# output "jenkins_server_public_ip" {
+#   description = "Public IP address of the Jenkins server"
+#   value       = module.jenkins_server.jenkins_server_public_ip
+# }
 
 # output "terraform_node_public_ip" {
 #   description = "Public IP address of the Terraform node"
