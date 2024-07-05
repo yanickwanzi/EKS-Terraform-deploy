@@ -66,34 +66,34 @@ output "private_subnets" {
 # # Grafana Workspace
 # ################################################################################
 
-# output "grafana_workspace_arn" {
-#   description = "The Amazon Resource Name (ARN) of the Grafana workspace"
-#   value       = module.managed_grafana.workspace_arn
-# }
+output "grafana_workspace_arn" {
+  description = "The Amazon Resource Name (ARN) of the Grafana workspace"
+  value       = module.managed_grafana.workspace_arn
+}
 
-# output "grafana_workspace_id" {
-#   description = "The ID of the Grafana workspace"
-#   value       = module.managed_grafana.workspace_id
-# }
+output "grafana_workspace_id" {
+  description = "The ID of the Grafana workspace"
+  value       = module.managed_grafana.workspace_id
+}
 
-# output "grafana_workspace_endpoint" {
-#   description = "The endpoint of the Grafana workspace"
-#   value       = module.managed_grafana.workspace_endpoint
-# }
+output "grafana_workspace_endpoint" {
+  description = "The endpoint of the Grafana workspace"
+  value       = module.managed_grafana.workspace_endpoint
+}
 
-# output "workspace_grafana_version" {
-#   description = "The version of Grafana running on the workspace"
-#   value       = module.managed_grafana.workspace_grafana_version
-# }
+output "workspace_grafana_version" {
+  description = "The version of Grafana running on the workspace"
+  value       = module.managed_grafana.workspace_grafana_version
+}
 
-# output "security_group_id" {
-#   description = "The ID of the security group"
-#   value       = module.managed_grafana.security_group_id
-# }
-# output "jenkins_server_public_ip" {
-#   description = "Public IP address of the Jenkins server"
-#   value       = module.jenkins_server.jenkins_server_public_ip
-# }
+output "security_group_id" {
+  description = "The ID of the security group"
+  value       = module.managed_grafana.security_group_id
+}
+output "jenkins_server_public_ip" {
+  description = "Public IP address of the Jenkins server"
+  value       = module.jenkins_server.jenkins_server_public_ip
+}
 
 # output "terraform_node_public_ip" {
 #   description = "Public IP address of the Terraform node"
@@ -109,3 +109,5 @@ output "private_subnets" {
 #   description = "Name of the DynamoDB table for state locking"
 #   value       = module.s3_dynamodb.table
 # }
+
+
