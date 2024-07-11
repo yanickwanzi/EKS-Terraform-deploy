@@ -38,7 +38,7 @@ module "aws_alb_controller" {
 ################################################################################
 # Managed Grafana Module
 ################################################################################
-
+/*
 module "managed_grafana" {
   source             = "./modules/grafana"
   env_name           = var.env_name
@@ -101,3 +101,5 @@ module "vpcendpoints" {
 #   table  = var.dynamodb_table
 #   region = var.main-region
 # }
+
+*/
