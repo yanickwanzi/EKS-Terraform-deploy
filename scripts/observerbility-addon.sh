@@ -1,5 +1,5 @@
 #!/bin/bash
-response="$(aws eks describe-addon --cluster-name dominion-cluster --region us-west-2 --addon-name amazon-cloudwatch-observability| grep -i observability 2>&1)" 
+response="$(aws eks describe-addon --cluster-name dominion-cluster --region us-east-2 --addon-name amazon-cloudwatch-observability| grep -i observability 2>&1)" 
 if [[ $? -eq 0 ]]; then
     echo "Deploying observerbility addon in dominion cluster"
     aws iam attach-role-policy \
