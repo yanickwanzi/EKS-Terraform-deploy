@@ -47,20 +47,20 @@ output "private_subnets" {
 # Prometheus Workspace
 ################################################################################
 
-# output "prometheus_workspace_arn" {
-#   description = "Amazon Resource Name (ARN) of the workspace"
-#   value       = module.prometheus.workspace_arn
-# }
+output "prometheus_workspace_arn" {
+   description = "Amazon Resource Name (ARN) of the workspace"
+   value       = module.prometheus.workspace_arn
+ }
 
-# output "prometheus_workspace_id" {
-#   description = "Identifier of the workspace"
-#   value       = module.prometheus.workspace_id
-# }
+ output "prometheus_workspace_id" {
+   description = "Identifier of the workspace"
+   value       = module.prometheus.workspace_id
+ }
 
-# output "workspace_prometheus_endpoint" {
-#   description = "Prometheus endpoint available for this workspace"
-#   value       = module.prometheus.workspace_prometheus_endpoint
-# }
+ output "workspace_prometheus_endpoint" {
+   description = "Prometheus endpoint available for this workspace"
+   value       = module.prometheus.workspace_prometheus_endpoint
+ }
 
 # ################################################################################
 # # Grafana Workspace
