@@ -35,7 +35,7 @@ variable "env_name" {
 ################################################################################
 # EKS Cluster Variables for grafana and prometheus deployment
 ################################################################################
-
+/*
  variable "cluster_endpoint" {
    type        = string
    sensitive   = true
@@ -53,6 +53,7 @@ variable "env_name" {
    type        = string
    sensitive   = true
  }
+*/
 
 ################################################################################
 # VPC Variables
