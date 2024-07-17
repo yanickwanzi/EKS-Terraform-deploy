@@ -75,7 +75,7 @@ module "eks" {
     terraform = "true"
   }
 }
-
+/*
 #creating namespaces
 resource "kubernetes_namespace" "gateway" {
   metadata {
@@ -122,3 +122,4 @@ resource "kubernetes_namespace" "analytics" {
   }
 }
 
+*/
